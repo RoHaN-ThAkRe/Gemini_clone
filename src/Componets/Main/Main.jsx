@@ -1,11 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import './Main.css';
 import { assets } from '../../assets/assets';
 import { Context } from '../../context/context';
 
 const Main = () => {
 
-    const { onSent, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(Context)
+    const { onSent, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(Context);
+
+    // const responseRef = useRef('');
+
+    // useEffect(() => {
+    //     if(resultData){
+    //         responseRef.current.innerHTML = resultData;
+    //     }
+    // },[resultData]);
 
 
     function appLink() {
@@ -61,6 +69,7 @@ const Main = () => {
                                     <hr />
                                 </div>
                                 : <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+                                // : <p ref={responseRef}></p>
                             }
                         </div>
                     </div>
